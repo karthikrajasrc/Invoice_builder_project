@@ -1,6 +1,5 @@
 import Home from "./Pages/Home"
 import Create from "./Pages/Create"
-import History from "./Pages/History"
 import Navbar from "./Components/Navbar"
 import { createBrowserRouter, RouterProvider } from "react-router"
 
@@ -21,10 +20,6 @@ const App = () => {
       {
         path: "/create",
         element: <Create />
-      },
-      {
-        path: "/history",
-        element: <History />
       }
     ]
   }

@@ -218,152 +218,174 @@ doc.text(`Email: ${clientEmail}`, 20, 86);
   doc.save(`${invoice}.pdf`);
 };
 
+    
+    const handleReset = () => {
+        localStorage.removeItem("companyName")
+        localStorage.removeItem("tagline")
+        localStorage.removeItem("companyAddress")
+        localStorage.removeItem("companyPhone")
+        localStorage.removeItem("companyEmail")
+        localStorage.removeItem("clientName")
+        localStorage.removeItem("clientAddress")
+        localStorage.removeItem("clientEmail")
+        localStorage.removeItem("notice")
+        localStorage.removeItem("invoiceNumber")
+        localStorage.removeItem("date")
+        localStorage.removeItem("dueDate")
+        localStorage.removeItem("invoiceitems")
+        localStorage.removeItem("invoicetax");
+}
 
     return (
         <>
             <div id="invoice">
             <div>
-                <h1 className="text-3xl font-bold text-center m-[25px]">INVOICE</h1>
-            </div>
-            <div className="flex flex-col justify-center gap-[15px] border border-gray-500/30 rounded-xl max-w-4xl mx-auto items-center px-0 py-0 pb-10 mx-auto bg-white">
-                <div className="border-b border-gray-500/30 pb-[5px] w-full bg-[oklch(97.4%_0.038_75.164)] h-[70px] items-center pl-[15px] pt-[15px] rounded-xl">
-                    <h1 className="text-2xl font-semibold">Your Organization Details</h1>
+                <h1 className="md:text-3xl text-xl font-bold text-center m-[25px]" id="invoice">INVOICE</h1>
+                </div>
+                <form>
+                <div className="flex justify-center mb-5">
+                    <button className="border border-gray-900/50 mt-5 px-[10px] py-[2px] rounded-lg text-white font-bold bg-black" onClick={handleReset}>Reset Invoice</button>
                     </div>
-                <div className="flex flex-row gap-[25px]">
-                  <div className="w-[300px]">
-                <label className="block mb-1 font-medium text-left"> COMPANY NAME
+                    </form>
+            <div className="flex flex-col justify-center gap-[15px] border border-gray-500/30 rounded-xl max-w-4xl mx-auto items-center px-0 py-0 pb-10 mx-auto bg-white">
+                <div className="border-b border-gray-500/30 pb-[5px] w-full bg-[oklch(97.4%_0.038_75.164)] md:h-[70px] h-[50px] items-center pl-[15px] pt-[15px] rounded-xl">
+                    <h1 className="text-xl text-center md:text-left md:text-2xl font-semibold">Your Organization Details</h1>
+                    </div>
+                <div className="flex flex-row gap-[10px] md:gap-[30px]">
+                  <div className="w-[150px] md:w-[300px]">
+                <label className="block mb-1 text-[15px] font-medium text-center md:text-left"> COMPANY NAME
         </label>
     <input
       type="text"
       placeholder="Enter Company Name..."
-                                className="w-full text-center border border-gray-500/30 rounded-lg py-2 bg-[oklch(99.4%_0.038_75.164)]"
+                                className="w-full text-center text-[13px] md:text-[15px] border border-gray-500/30 rounded-lg py-1 md:py-2 bg-[oklch(99.4%_0.038_75.164)]"
                                 value={companyName}
                                 onChange={e => setcompanyName(e.target.value)}
     />
                 </div>
-                      <div className="w-[300px]">
-                <label className="block mb-1 font-medium text-left">TAGLINE
+                      <div className="w-[150px] md:w-[300px]">
+                <label className="block mb-1 text-[15px] font-medium text-center md:text-left">TAGLINE
         </label>
     <input
       type="text"
       placeholder="Enter Tagline..."
-      className="w-full text-center border border-gray-500/30 rounded-lg py-2 bg-[oklch(99.4%_0.038_75.164)]" value={tagline} onChange={e => setTagline(e.target.value)}
+      className="w-full text-center text-[12px] md:text-[15px] border border-gray-500/30 rounded-lg py-1 md:py-2 bg-[oklch(99.4%_0.038_75.164)]" value={tagline} onChange={e => setTagline(e.target.value)}
     />
                     </div>
                 </div>
-                <div className="w-[530px] ">
-                 <label className="block mb-1 font-medium text-left">ADDRESS
+                <div className="md:w-[530px] w-[300px]">
+                 <label className="block mb-1 text-[15px] font-medium text-center md:text-left">ADDRESS
         </label>
-                    <textarea placeholder="Enter Company Address.." className="w-full text-center border border-gray-500/30 rounded-lg bg-[oklch(99.4%_0.038_75.164)]" cols={5} rows={4} value={companyAddress} onChange={e => setcompanyAddress(e.target.value)} />
+                    <textarea placeholder="Enter Company Address.." className="w-full text-center border text-[13px] md:text-[15px] border-gray-500/30 rounded-lg bg-[oklch(99.4%_0.038_75.164)]" cols={5} rows={4} value={companyAddress} onChange={e => setcompanyAddress(e.target.value)} />
                     </div>
-                <div className="flex flex-row gap-[25px]">
-                    <div className="w-[300px]">
-                 <label className="block mb-1 font-medium text-left">PHONE
+                <div className="flex flex-row gap-[15px] md:gap-[30px]">
+                    <div className="w-[150px] md:w-[300px]">
+                 <label className="block mb-1 text-[15px] font-medium text-center md:text-left">PHONE
         </label>
-                            <input type="tel" placeholder="Enter Phone Number.." className="w-full text-center border border-gray-500/30 rounded-lg py-2 bg-[oklch(99.4%_0.038_75.164)]"
+                            <input type="tel" placeholder="Enter Phone Number.." className="w-full text-center text-[12px] md:text-[15px] border border-gray-500/30 rounded-lg py-1 md:py-2 bg-[oklch(99.4%_0.038_75.164)]"
                                 value={companyPhone}
                                 onChange={e => setCompanyphone(e.target.value)} />
                     </div>
-                    <div className="w-[300px]">
-                 <label className="block mb-1 font-medium text-left">E-MAIL
+                    <div className="w-[150px] md:w-[300px]">
+                 <label className="block mb-1 text-[15px] font-medium text-center md:text-left">E-MAIL
         </label>
-                        <input type="text" placeholder="Enter Email Address.." className="w-full text-center border border-gray-500/30 rounded-lg py-2 bg-[oklch(99.4%_0.038_75.164)]" value={companyEmail} onChange={e => setCompanyEmai(e.target.value)}/>
+                        <input type="text" placeholder="Enter Email Address.." className="w-full text-center text-[12px] md:text-[15px] border border-gray-500/30 rounded-lg py-1 md:py-2 bg-[oklch(99.4%_0.038_75.164)]" value={companyEmail} onChange={e => setCompanyEmai(e.target.value)}/>
                         </div>
                 </div>
             </div>
 
            <div className="flex flex-col justify-center gap-[15px] border border-gray-500/30 rounded-xl max-w-4xl mx-auto items-center px-0 py-0 pb-10 mx-auto bg-white mt-[35px]">
-                <div className="border-b border-gray-500/30 pb-[5px] w-full bg-[oklch(97.4%_0.038_75.164)] h-[70px] items-center pl-[15px] pt-[15px] rounded-xl">
-                    <h1 className="text-2xl font-semibold">Invoice Details</h1>
+                <div className="border-b border-gray-500/30 pb-[5px] w-full bg-[oklch(97.4%_0.038_75.164)] md:h-[70px] h-[50px] items-center pl-[15px] pt-[15px] rounded-xl">
+                    <h1 className="text-xl text-center md:text-left md:text-2xl font-semibold">Invoice Details</h1>
                 </div>
                 <div><h1 className="font-semibold py-3">Invoice INFO</h1></div>
-                <div className="flex flex-row gap-[25px]">
-                <div className="w-[200px]">
-                <label className="block mb-1 font-medium text-left"> INVOICE#
+                <div className="flex flex-row md:gap-[25px] gap-[5px]">
+                <div className="md:w-[200px] w-[100px]">
+                <label className="block mb-1 text-[15px] font-medium text-center md:text-left"> INVOICE#
             </label>
         <input
         type="text"
         placeholder="Invoice Number.."
-        className="w-full text-center border border-gray-500/30 rounded-lg py-2 bg-[oklch(99.4%_0.038_75.164)]" value={invoice}
+        className="w-full text-center text-[12px] md:text-[15px] border border-gray-500/30 rounded-lg py-1 md:py-2 bg-[oklch(99.4%_0.038_75.164)]" value={invoice}
   onChange={(e) => setinvoice(e.target.value)}
         />
                     </div>
-                    <div className="w-[200px]">
-                <label className="block mb-1 font-medium text-left"> ISSUE DATE
+                    <div className="md:w-[200px] w-[100px]">
+                <label className="block mb-1 text-[15px] font-medium text-center md:text-left"> ISSUE DATE
         </label>
     <input
       type="date"
-      className="w-full text-center border border-gray-500/30 rounded-lg py-2 px-3 bg-[oklch(99.4%_0.038_75.164)] [&::-webkit-datetime-edit]:text-center" value={date} onChange={e => setDate(e.target.value)}
+      className="w-full text-center text-[12px] md:text-[15px] border border-gray-500/30 rounded-lg py-1 md:px-3 px-1 md:py-2 bg-[oklch(99.4%_0.038_75.164)]" value={date} onChange={e => setDate(e.target.value)}
     />
                     </div>
-                    <div className="w-[200px]">
-                <label className="block mb-1 font-medium text-left"> DUE DATE
+                    <div className="md:w-[200px] w-[100px]">
+                <label className="block mb-1 text-[15px] font-medium text-center md:text-left"> DUE DATE
         </label>
     <input
       type="date"
-      className="w-full text-center border border-gray-500/30 rounded-lg py-2 px-3 bg-[oklch(99.4%_0.038_75.164)] [&::-webkit-datetime-edit]:text-center" value={dueDate} onChange={e => setDueDate(e.target.value)}
+      className="w-full text-center text-[12px] md:text-[15px] border border-gray-500/30 rounded-lg py-1 md:px-3 px-1 md:py-2 bg-[oklch(99.4%_0.038_75.164)]" value={dueDate} onChange={e => setDueDate(e.target.value)}
     />
                     </div>
                 </div>
                 <div>
 
                 </div>
-                <div><h1 className="font-semibold py-3">Invoice INFO</h1></div>
-                 <div className="w-[600px]">
-                <label className="block mb-1 font-medium text-left"> CLIENT NAME
+                <div><h1 className="font-semibold md:py-3" id="client">Invoice INFO</h1></div>
+                 <div className="md:w-[600px] w-[300px]">
+                <label className="block mb-1 text-[15px] font-medium text-center md:text-left"> CLIENT NAME
         </label>
     <input
       type="text"
       placeholder="Client/Company Name.."
-      className="w-full text-center border border-gray-500/30 rounded-lg py-2 bg-[oklch(99.4%_0.038_75.164)]" value={clientName} onChange={e => setclientName(e.target.value)}
+      className="w-full text-center text-[13px] md:text-[15px] border border-gray-500/30 rounded-lg py-1 md:py-2 bg-[oklch(99.4%_0.038_75.164)]" value={clientName} onChange={e => setclientName(e.target.value)}
     />
                     </div>
-            <div className="w-[600px] ">
-                 <label className="block mb-1 font-medium text-left" > CLIENT ADDRESS
+            <div className="md:w-[600px] w-[300px]">
+                 <label className="block mb-1 text-[15px] font-medium text-center md:text-left" > CLIENT ADDRESS
         </label>
-                    <textarea placeholder="Client Company Address.." className="w-full text-center border border-gray-500/30 rounded-lg bg-[oklch(99.4%_0.038_75.164)]" cols={5} rows={4} value={clientAddress} onChange={e => setclientAddress(e.target.value)}/>
+                    <textarea placeholder="Client Company Address.." className="w-full text-center border text-[13px] md:text-[15px] border-gray-500/30 rounded-lg bg-[oklch(99.4%_0.038_75.164)]" cols={5} rows={4} value={clientAddress} onChange={e => setclientAddress(e.target.value)}/>
                     </div>
-                <div className="w-[600px]">
-                <label className="block mb-1 font-medium text-left"> CLIENT EMAIL
+                <div className="md:w-[600px] w-[300px]">
+                <label className="block mb-1 text-[15px] font-medium text-center md:text-left"> CLIENT EMAIL
         </label>
     <input
       type="text"
       placeholder="Client Email..."
-      className="w-full text-center border border-gray-500/30 rounded-lg py-2 bg-[oklch(99.4%_0.038_75.164)]" value={clientEmail} onChange={e => setClientEmail(e.target.value)}
+      className="w-full text-center text-[12px] md:text-[15px] border border-gray-500/30 rounded-lg py-1 md:py-2 bg-[oklch(99.4%_0.038_75.164)]" value={clientEmail} onChange={e => setClientEmail(e.target.value)}
     />
                 </div>              
             </div>
 
                        <div className="flex flex-col justify-center gap-[15px] border border-gray-500/30 rounded-xl max-w-4xl mx-auto items-center px-0 py-0 pb-10 mx-auto bg-white mt-[35px]">
-                <div className="border-b border-gray-500/30 pb-[5px] w-full bg-[oklch(97.4%_0.038_75.164)] h-[70px] items-center pl-[15px] pt-[15px] rounded-xl">
-                    <h1 className="text-2xl font-semibold">List Items</h1>
+                <div className="border-b border-gray-500/30 pb-[5px] w-full bg-[oklch(97.4%_0.038_75.164)] md:h-[70px] h-[50px] items-center pl-[15px] pt-[15px] rounded-xl">
+                    <h1 className="text-xl text-center md:text-left md:text-2xl font-semibold" id="invoiceprep">List Items</h1>
                 </div>
                 <div>
                     <table>
                     <thead className="">
                          <tr>
-      <th className="text-left pr-35">DESCRIPTION</th>
-      <th className="text-center pr-25">QTY</th>
-      <th className="text-center pr-25">UNIT RATE</th>
-      <th className="text-right pr-20">AMOUNT</th>
+      <th className="text-left md:pr-35 text-[14px]">DESCRIPTION</th>
+      <th className="text-center md:pr-25 text-[14px]">QTY</th>
+      <th className="text-center md:pr-25 text-[14px]">UNIT RATE</th>
+      <th className="text-right md:pr-20 text-[14px]">AMOUNT</th>
     </tr>
                         </thead>
                         <tbody>
           {items.map((item, index) => (
             <tr key={index}>
-                  <td ><input type="text" placeholder="Product name/ Description" className="mt-4 border border-gray-500/30 rounded-sm p-1 w-[200px]"
+                  <td ><input type="text" placeholder="Product name/ Description" className="mt-4 border border-gray-500/30 rounded-sm p-1 md:w-[200px] w-[90px]"
                       value={item.description}
                       onChange={e => handlechange(index, "description", e.target.value)}></input></td>
                                 <td>
-                                    <input type="number" placeholder="Quantity" className="mt-4 border border-gray-500/30 rounded-sm p-1 w-[70px]" value={item.qty}
+                                    <input type="number" placeholder="Quantity" className="mt-4 border border-gray-500/30 rounded-sm p-1 md:w-[70px] w-[35px] mr-1" value={item.qty}
                       onChange={e => handlechange(index, "qty", e.target.value)}></input>
                                 </td>
                                 <td>
-                                    <input type="number" placeholder="Unit Price" className="mt-4 border border-gray-500/30 rounded-sm p-1 w-[100px]" value={item.price}
+                                    <input type="number" placeholder="Unit Price" className="mt-4 border border-gray-500/30 rounded-sm p-1 md:w-[100px] w-[60px]" value={item.price}
                       onChange={e => handlechange(index, "price", e.target.value)}></input>
                                 </td>
                                 <td>
-                      <input type="number" placeholder="Amount" className="mt-4 border border-gray-500/30 rounded-sm p-1 w-[120px]"
+                      <input type="number" placeholder="Amount" className="mt-4 border border-gray-500/30 rounded-sm p-1 md:w-[120px] w-[70px]"
                       value={item.amount} readOnly></input>
                   </td>
                   <td>
@@ -387,18 +409,18 @@ doc.text(`Email: ${clientEmail}`, 20, 86);
                                 onChange={e => settax(e.target.value)}
                                 className="mt-4 ml-3 border border-gray-500/30 rounded-sm p-1 w-[90px]" />
                         </div>
-                        <div className="border-b border-gray-500/30 pb-[5px] w-[700px] bg-[oklch(97.4%_0.038_75.164)] h-[180px] items-center pl-[15px] pt-[15px] rounded-xl mt-4">
+                        <div className="border-b border-gray-500/30 pb-[5px] md:w-[700px] w-full bg-[oklch(97.4%_0.038_75.164)] h-[180px] items-center pl-[15px] pt-[15px] rounded-xl mt-4">
                             <div className="flex flex-row justify-between mb-5 font-semibold">
                                 <h1>Subtotal</h1>
-                                <p className="pr-15">&#8377; {subtotal.toFixed(2)}</p>
+                                <p className="md:pr-15 pr-3">&#8377; {subtotal.toFixed(2)}</p>
                             </div>
                             <div className="flex flex-row justify-between mb-5 font-semibold border-b border-gray-500/50 pb-4">
                                 <h1>Tax Amount</h1>
-                                <p className="pr-15">&#8377; {taxAmount.toFixed(2) }</p>
+                                <p className="md:pr-15 pr-3">&#8377; {taxAmount.toFixed(2) }</p>
                             </div>
-                            <div className="flex flex-row justify-between mb-5 font-bold text-[22px] mb-5">
+                            <div className="flex flex-row justify-between mb-5 font-bold md:text-[22px] text-[18px] mb-5">
                                 <h1>Total Due</h1>
-                                <p className="pr-15">&#8377; {totalDue.toFixed(2)}</p>
+                                <p className="md:pr-15 pr-3">&#8377; {totalDue.toFixed(2)}</p>
                             </div>
 
                 </div>
@@ -406,7 +428,7 @@ doc.text(`Email: ${clientEmail}`, 20, 86);
                         <div className="flex justify-center">
                             <button
   onClick={handleDownload   }
-  className="bg-black text-white px-4 py-2 rounded mt-4"
+  className="bg-black text-white px-4 py-2 rounded mt-4" id="export"
 >
   Download PDF
 </button>
@@ -415,13 +437,13 @@ doc.text(`Email: ${clientEmail}`, 20, 86);
             </div>
             
             <div className="flex flex-col justify-center gap-[15px] border border-gray-500/30 rounded-xl max-w-4xl mx-auto items-center px-0 py-0 pb-10 mx-auto bg-white mt-[35px]">
-                <div className="border-b border-gray-500/30 pb-[5px] w-full bg-[oklch(97.4%_0.038_75.164)] h-[70px] items-center pl-[15px] pt-[15px] rounded-xl">
-                    <h1 className="text-xl font-semibold">Notice & Terms</h1>
+                <div className="border-b border-gray-500/30 pb-[5px] w-full bg-[oklch(97.4%_0.038_75.164)] md:h-[70px] h-[50px] items-center pl-[15px] pt-[15px] rounded-xl">
+                    <h1 className="text-xl text-center md:text-left md:text-2xl font-semibold">Notice & Terms</h1>
                 </div>
                 <div>
                     <h1 className="mb-3">Notes (Shown on Invoice)</h1>
-                        <textarea className="border border-gray-500/30 rounded-xl px-2 pt-1 bg-[oklch(97.4%_0.038_75.164)]" placeholder="Enter the notes which will be shown on the bottom of the PDF.."
-                    value={notice}        onChange={e => setNotice(e.target.value)} cols={55} rows={4} />
+                        <textarea className="w-full text-center border text-[13px] md:text-[15px] border-gray-500/30 rounded-lg bg-[oklch(99.4%_0.038_75.164)]" placeholder="Enter the notes which will be shown on the bottom of the PDF.."
+                    value={notice}        onChange={e => setNotice(e.target.value)} cols={40} rows={4} />
                 </div>
                 </div>
 </div>
@@ -430,33 +452,33 @@ doc.text(`Email: ${clientEmail}`, 20, 86);
                <footer className="bg-[oklch(83.7%_0.128_66.29)] text-black-900 mt-[80px]">
   <div className="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
     <div>
-      <h2 className="text-xl font-bold text-black">Invoice Builder</h2>
-      <p className="mt-3 text-sm text-black">
+      <h2 className="text-xl md:text-[20px] font-bold text-black">Invoice Builder</h2>
+      <p className="mt-3 text-sm md:text-[16px] text-black">
         A simple and professional invoice generation tool for freelancers, 
         startups, and small businesses.
       </p>
     </div>
     <div>
-      <h3 className="text-lg font-bold text-black">Quick Links</h3>
-      <ul className="mt-3 space-y-2 text-sm">
-        <li><a href="#">Invoice</a></li>
-        <li><a href="#">Client Details</a></li>
-        <li><a href="#">Invoice Preparation</a></li>
-        <li><a href="#">Export</a></li>
+      <h3 className="text-lg font-bold md:text-[20px] text-black">Quick Links</h3>
+      <ul className="mt-3 space-y-2 text-sm md:text-[16px]">
+        <li><a href="#invoice">Invoice</a></li>
+        <li><a href="#client">Client Details</a></li>
+        <li><a href="#invoiceprep">Invoice Preparation</a></li>
+        <li><a href="#export">Export</a></li>
       </ul>
     </div>
     <div>
-      <h3 className="text-lg font-semibold text-black">Contact</h3>
-      <p className="mt-3 text-sm text-black">
+      <h3 className="text-lg font-semibold md:text-[20px] text-black">Contact</h3>
+      <p className="mt-3 text-sm md:text-[16px] text-black">
         Email: support@invoicebuilder.com
       </p>
-      <p className="text-sm text-black">
+      <p className="text-sm md:text-[16px] text-black">
         Built for productivity & efficiency.
       </p>
     </div>
 
   </div>
-  <div className="border-t border-gray-700 text-center py-4 text-sm text-black">
+  <div className="border-t border-gray-700 md:text-[15px] text-center py-4 text-sm text-black">
     © 2026 Invoice Builder. All rights reserved.
   </div>
 </footer>
