@@ -14,11 +14,11 @@ const App = () => {
     element: <Navbar />,
     children: [
       {
-        path: "",
+        index: true,
         element: <Home />
       },
       {
-        path: "/create",
+        path: "create",
         element: <Create />
       }
     ]
