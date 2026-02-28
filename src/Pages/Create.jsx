@@ -191,7 +191,6 @@ doc.text(splitAddress, 20, 78);
 
 
 doc.text(`Email: ${clientEmail}`, 20, 86);
-  doc.text(`Email: ${clientEmail}`, 20, 86);
 
   autoTable(doc, {
     startY: 100,
@@ -220,20 +219,8 @@ doc.text(`Email: ${clientEmail}`, 20, 86);
 
     
     const handleReset = () => {
-        localStorage.removeItem("companyName")
-        localStorage.removeItem("tagline")
-        localStorage.removeItem("companyAddress")
-        localStorage.removeItem("companyPhone")
-        localStorage.removeItem("companyEmail")
-        localStorage.removeItem("clientName")
-        localStorage.removeItem("clientAddress")
-        localStorage.removeItem("clientEmail")
-        localStorage.removeItem("notice")
-        localStorage.removeItem("invoiceNumber")
-        localStorage.removeItem("date")
-        localStorage.removeItem("dueDate")
-        localStorage.removeItem("invoiceitems")
-        localStorage.removeItem("invoicetax");
+   localStorage.clear();
+  window.location.reload();
 }
 
     return (
@@ -242,11 +229,15 @@ doc.text(`Email: ${clientEmail}`, 20, 86);
             <div>
                 <h1 className="md:text-3xl text-xl font-bold text-center m-[25px]" id="invoice">INVOICE</h1>
                 </div>
-                <form>
-                <div className="flex justify-center mb-5">
-                    <button className="border border-gray-900/50 mt-5 px-[10px] py-[2px] rounded-lg text-white font-bold bg-black" onClick={handleReset}>Reset Invoice</button>
-                    </div>
-                    </form>
+             <div className="flex justify-center mb-5">
+  <button
+    type="button"
+    className="border border-gray-900/50 mt-5 px-[10px] py-[2px] rounded-lg text-white font-bold bg-black"
+    onClick={handleReset}
+  >
+    Reset Invoice
+  </button>
+</div>
             <div className="flex flex-col justify-center gap-[15px] border border-gray-500/30 rounded-xl max-w-4xl mx-auto items-center px-0 py-0 pb-10 mx-auto bg-white">
                 <div className="border-b border-gray-500/30 pb-[5px] w-full bg-[oklch(97.4%_0.038_75.164)] md:h-[70px] h-[50px] items-center pl-[15px] pt-[15px] rounded-xl">
                     <h1 className="text-xl text-center md:text-left md:text-2xl font-semibold">Your Organization Details</h1>
